@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
 const {connectToMongoDB} = require('./connect')
+const URL = require('./models/url');
 const urlRoute = require('./router/url');
 const staticRoute = require('./router/staticRouter');
-const URL = require('./models/url');
+const UserRoute  = require('./router/user');
 const app = express();
 PORT = 8001;
 
@@ -16,15 +17,12 @@ app.set('views',path.resolve('./views'));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
-// app.get("/test",async (req,res) => {
-//     const allUrls = await URL.find({});
-//     return res.render('home',{
-//         urls: allUrls,
-//     });
-// })
+
 
 app.use("/url",urlRoute);
 
 app.use('/', staticRoute);
+
+app.use("/user", UserRoute)
 
 app.listen(PORT,()=>console.log(`Server started at PORT: ${PORT}`));
