@@ -9,5 +9,5 @@ function getUser(id, user) {
 }
 
 module.exports = {
-    setUser, getUser
-}
+    setUser, getUser,
+};

@@ -4,18 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Change height to min-height for small content */
+            background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+            position: relative;
+        }
+
+        .background-text {
+            font-size: 75px;
+            font-weight: bold;
+            color: rgba(249, 16, 16, 1); /* semi-transparent white */
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1; /* Ensure text is above the form */
+            pointer-events: none; /* This ensures the text does not interfere with form elements */
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 320px;
+            text-align: center;
+            z-index: 2; /* Ensure login container is above the background text */
+            position: relative; /* Added relative positioning */
+        }
+
+        .login-container h1 {
+            color: #333333;
+        }
+
+        .login-container h3 {
+            margin-top: 10px;
+            color: #555555;
+        }
+
+        .login-container form {
+            margin-top: 20px;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666666;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+        }
+
+        .login-container button[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .author-text {
+            position: absolute;
+            bottom: 15%;
+            right: 45%; 
+            color: #f40c0c;
+            font-size: 20px;
+        }
+    @media (min-width: 768px) 
+    {
+        body
+        {
+            font-size: 17px; 
+        }
+        
+        .background-text
+        {
+            font-size:45px;
+        }
+    }
+    </style>
 </head>
 <body>
-    <h1>Welcome Back</h1>
-    <h3>Login</h3>
-    <form action="/user/login" method="POST">
-        
-        <label >Email</label>
-        <input type="text" name="email" required />
-        <label >Password</label>
-        <input type="text" name="password" required />
-
-        <button type="submit">Login</button>
-    </form>
+    <div class="background-text">URL Shortener</div>
+    <div class="login-container">
+        <h1>Welcome Back</h1>
+        <h3>Login</h3>
+        <form action="/user/login" method="POST">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required />
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required />
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="author-text">- by Rohan Dutta</div>
 </body>
 </html>
